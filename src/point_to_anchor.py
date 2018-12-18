@@ -25,6 +25,9 @@ def matrix_association(data, anchors, K, matrix):
             ret[i, ind[k]] = matrix[i, ind[k]]
     return ret 
 
+def simplex_projection(z):
+    pass
+
 def LEA(data, anchors, K):
     ret = np.zeros((data.shape[0], K), dtype = float)
     return ret #Not implemented yet

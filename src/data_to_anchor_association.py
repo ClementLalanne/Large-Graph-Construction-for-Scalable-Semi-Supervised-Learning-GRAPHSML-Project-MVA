@@ -36,4 +36,4 @@ class AnchorsAssociation():
                 assert False
         else:
             assert False
-        return anchors, sparse.csr_matrix(Z)
+        return anchors, Z
