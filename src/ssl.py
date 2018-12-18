@@ -31,12 +31,12 @@ class SSLSolver():
     def __init__(self):
         self.data_to_anchors = data_to_anchor_association.AnchorsAssociation()
 
-    def fit(self, data, Y, K, mode='kmeans', association='LEA', kernel=None, tuning_param=1.):
+    def fit(self, data, Y, m, s, mode='kmeans', association='LEA', kernel=None, tuning_param=1.):
 
         nclasses = number_classes(Y)
         labeled_indices = np.where(Y>0)
 
-        anchors, Z = self.data_to_anchors.draw(data, K, mode, association, kernel)
+        anchors, Z = self.data_to_anchors.draw(data, m, s, mode, association, kernel)
 
         Z_l = Z[labeled_indices, :]
         Y_one_hot = np.zeros(labeled_indices.shape[0], nclasses)

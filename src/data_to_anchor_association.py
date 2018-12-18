@@ -7,31 +7,31 @@ class AnchorsAssociation():
     def __init__(self):
         self.drawer = anchors.AnchorsDrawer()
 
-    def draw(self, data, K, mode='kmeans', association='LEA', kernel=None):
+    def draw(self, data, m, s, mode='kmeans', association='LEA', kernel=None):
         if mode=='random':
-            anchors = self.drawer.draw(data, K, mode='random')
+            anchors = self.drawer.draw(data, m, mode='random')
             if association=='kernel based':
-                Z = point_to_anchor.kernel_association(data, anchors, K, kernel)
+                Z = point_to_anchor.kernel_association(data, anchors, s, kernel)
             elif association=='LEA':
-                Z = point_to_anchor.LEA(data, anchors, K)
+                Z = point_to_anchor.LEA(data, anchors, s)
             else:
                 assert False
         elif mode=='kmeans':
-            anchors =  self.drawer.draw(data, K, mode='kmeans')
+            anchors =  self.drawer.draw(data, m, mode='kmeans')
             if association=='kernel based':
-                Z = point_to_anchor.kernel_association(data, anchors, K, kernel)
+                Z = point_to_anchor.kernel_association(data, anchors, s, kernel)
             elif association=='LEA':
-                Z = point_to_anchor.LEA(data, anchors, K)
+                Z = point_to_anchor.LEA(data, anchors, s)
             else:
                 assert False
         elif mode=='fuzzy':
-            anchors, matrix = self.drawer.draw(data, K, mode='fuzzy')
+            anchors, matrix = self.drawer.draw(data, m, mode='fuzzy')
             if association=='kernel based':
-                Z = point_to_anchor.kernel_association(data, anchors, K, kernel)
+                Z = point_to_anchor.kernel_association(data, anchors, s, kernel)
             elif association=='LEA':
-                Z = point_to_anchor.LEA(data, anchors, K)
+                Z = point_to_anchor.LEA(data, anchors, s)
             elif association=='fuzzy':
-                Z = point_to_anchor.matrix_association(data, anchors, K, matrix)
+                Z = point_to_anchor.matrix_association(data, anchors, s, matrix)
             else:
                 assert False
         else:
