@@ -31,5 +31,5 @@ def test(var, k, n, m, s, p):
     print("Score is {} out of {}".format(score, n))
 
 start = time.time()
-test(1,5,100000,5,2,50)
+test(1,5,1000,10,6,50)
 print(time.time()-start)

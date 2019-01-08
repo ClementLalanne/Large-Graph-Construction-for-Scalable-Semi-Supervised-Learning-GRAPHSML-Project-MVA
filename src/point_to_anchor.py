@@ -44,6 +44,7 @@ def simplex_projection(z):
 
 def LEA(data, anchors, s):
     K = anchors.shape[0]
+    d = anchors.shape[1]
     ret = np.zeros((data.shape[0], K), dtype = float)
     c_ind = closest_indices(data, anchors, s)
     for i in range(data.shape[0]):
