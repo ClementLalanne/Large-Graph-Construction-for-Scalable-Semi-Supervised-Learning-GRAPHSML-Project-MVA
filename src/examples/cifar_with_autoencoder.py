@@ -54,7 +54,7 @@ class cifar10loader():
             self.labels = np.concatenate((self.labels, np.array(labels, dtype=int)), axis=0)
         self.size = self.labels.shape[0]
         
-cifar = cifar10loader('data/cifar-10-batches-py')
+cifar = cifar10loader(cwd + '/../' + 'data/cifar-10-batches-py')
 
 train_data = cifar.data
 train_labels = cifar.labels + 1

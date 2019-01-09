@@ -14,7 +14,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 
-path="data/" 
+path=cwd + '/../' + "data/" 
 
 Dtrain=pd.read_csv(path+"mnist_train.csv",header=None)
 
