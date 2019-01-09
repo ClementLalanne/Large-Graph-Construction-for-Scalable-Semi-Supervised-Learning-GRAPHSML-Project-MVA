@@ -78,7 +78,7 @@ def LEA(data, anchors, s):
                 j+=1
             delta_old = delta_new
             delta_new = (1+np.sqrt(1+4*delta_old**2))/2
-            if np.linalg.norm(z_old-z_new)<epsilon:
+            if np.linalg.norm(z_old-z_new)<epsilon or t>5:
                 break
         for j in range(s):
             ret[i, c_ind[i][j]] = z_new[j]
