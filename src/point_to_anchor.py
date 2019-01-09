@@ -16,7 +16,7 @@ def kernel_association(data, anchors, s, kernel):
     ind = closest_indices(data, anchors, s)
     for i in range(data.shape[0]):
         for k in range(s):
-            ret[i, ind[k]] = kernel(data[i], anchors[ind[k]])
+            ret[i, ind[i, k]] = kernel(data[i], anchors[ind[i, k]])
         ret[i] = ret[i] / np.sum(ret[i])
     return ret 
 
